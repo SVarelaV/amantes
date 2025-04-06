@@ -4,7 +4,8 @@
     def __init__(self, nombre, edad, dineritos):
         self._nombre = nombre
         self._edad = edad
-        self._dineritos=dineritos
+        self._dineritos = dineritos
+
     @property
     def nombre(self):
         return self._nombre
@@ -20,12 +21,12 @@
     @edad.setter
     def edad(self, nueva_edad):
         self._edad = nueva_edad
-     
+
     @property
     def dineritos(self):
         return self._dineritos
 
-    @edad.setter
+    @dineritos.setter
     def dineritos(self, nuevo_dineritos):
         self._dineritos = nuevo_dineritos
 
@@ -49,10 +50,7 @@ class ListaAmantes:
 
     def agregar_Amante(self, Amante):
         self.Amantes.append(Amante)
-               
-            
 
-        
     def mostrar_Amantes(self):
         print("Lista de Amantees:")
         for i, Amante in enumerate(self.Amantes, 1):
@@ -72,15 +70,15 @@ class ListaAmantes:
             elif opcion == "2":
                 nombre = input("Inserta el nombre del Festivos: ")
                 edad = int(input("Inserta la edad del Festivos: "))
-                dineritos=int(input("Inserta los dineritos de Festivos: "))
-                nuevo_Festivos = Festivos(nombre, edad,dineritos)
+                dineritos = int(input("Inserta los dineritos de Festivos: "))
+                nuevo_Festivos = Festivos(nombre, edad, dineritos)
                 self.agregar_Amante(nuevo_Festivos)
                 print("Festivos agregado correctamente.")
             elif opcion == "3":
                 nombre = input("Inserta el nombre del Laborables: ")
                 edad = int(input("Inserta la edad del Laborables: "))
-                dineritos=int(input("Inserta los dineritos de Festivos: "))
-                nuevo_Laborables = Laborables(nombre, edad,dineritos)
+                dineritos = int(input("Inserta los dineritos de Festivos: "))
+                nuevo_Laborables = Laborables(nombre, edad, dineritos)
                 self.agregar_Amante(nuevo_Laborables)
                 print("Laborables agregado correctamente.")
             elif opcion == "4":
@@ -93,114 +91,3 @@ class ListaAmantes:
 # Programa principal
 lista_Amantes = ListaAmantes()
 lista_Amantes.menu()
-class Amante:
-    especie = "Amante"
-
-    def __init__(self, nombre, edad, dineritos):
-        self._nombre = nombre
-        self._edad = edad
-        self._dineritos=dineritos
-    @property
-    def nombre(self):
-        return self._nombre
-
-    @nombre.setter
-    def nombre(self, nuevo_nombre):
-        self._nombre = nuevo_nombre
-
-    @property
-    def edad(self):
-        return self._edad
-
-    @edad.setter
-    def edad(self, nueva_edad):
-        self._edad = nueva_edad
-     
-    @property
-    def dineritos(self):
-        return self._dineritos
-
-    @edad.setter
-    def dineritos(self, nuevo_dineritos):
-        self._dineritos = nuevo_dineritos
-
-    def hacer_sonido(self):
-        pass
-
-
-class Festivos(Amante):
-    def hacer_sonido(self):
-        return "¡Guau!"
-
-
-class Laborables(Amante):
-    def hacer_sonido(self):
-        return "¡Miau!"
-
-
-class ListaAmantes:
-    def __init__(self):
-        self.Amantes = [Amante]
-
-    def agregar_Amante(self, Amante):
-        self.Amantes.append(Amante)
-               
-    def eliminar_amante(self, nombre):
-        for amante in self.Amantes:
-            if amante.nombre == nombre:
-                self.Amantes.remove(amante)
-                print(f"Amante {nombre} eliminado correctamente.")
-                return
-        print(f"{nombre} no está en la lista.")       
-
-    def eliminar_amanteW(self, nombre):
-        cont = 0
-        while cont < len(self.Amantes):
-            if self.Amantes[cont].nombre == nombre:
-                del self.Amantes[cont]
-                print(f"Amante {nombre} eliminado correctamente.")
-                return
-            i += 1
-        print(f"{nombre} no está en la lista.")    
-    def mostrar_Amantes(self):
-        print("Lista de Amantees:")
-        for i, Amante in enumerate(self.Amantes, 1):
-            print(f"{i}. Nombre: {Amante.nombre}, Edad: {Amante.edad}, Especie: {Amante.especie}")
-
-    def menu(self):
-        while True:
-            print("\n---- Menu ----")
-            print("1. Mostrar lista de Amantes")
-            print("2. Agregar nuevo Festivos")
-            print("3. Agregar nuevo Laborables")
-            #falta los eliminar???????????????
-            print("4. Salir")
-            opcion = input("Inserta una opción: ")
-
-            if opcion == "1":
-                self.mostrar_Amantes()
-            elif opcion == "2":
-                nombre = input("Inserta el nombre del Festivos: ")
-                edad = int(input("Inserta la edad del Festivos: "))
-                dineritos=int(input("Inserta los dineritos de Festivos: "))
-                nuevo_Festivos = Festivos(nombre, edad,dineritos)
-                self.agregar_Amante(nuevo_Festivos)
-                print("Festivos agregado correctamente.")
-            elif opcion == "3":
-                nombre = input("Inserta el nombre del Laborables: ")
-                edad = int(input("Inserta la edad del Laborables: "))
-                dineritos=int(input("Inserta los dineritos de Festivos: "))
-                nuevo_Laborables = Laborables(nombre, edad,dineritos)
-                self.agregar_Amante(nuevo_Laborables)
-                print("Laborables agregado correctamente.")
-            elif opcion == "4":
-                print("Saliendo del programa...")
-                break
-            else:
-                print("Opción no válida. Por favor, elije una opción válida.")
-
-
-# Programa principal
-lista_Amantes = ListaAmantes()
-lista_Amantes.menu()
-
